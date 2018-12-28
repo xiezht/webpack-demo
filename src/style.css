@@ -1,0 +1,9 @@
+@import './common.css';
+
+.hello {
+  color:royalblue;
+  height: 50vh;
+  background: url('./rocket.png');
+  background-size: contain;
+  font-family: 'MyFont 1';
+}
