@@ -1,16 +1,18 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const Webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/print.js'
+    // print: './src/print.js'
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   },
   output: {
     filename: '[name].bundle.js',
@@ -21,6 +23,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Output Management'
-    })
+    }),
+    new Webpack.HotModuleReplacementPlugin()
   ]
 }
