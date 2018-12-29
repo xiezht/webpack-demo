@@ -17,13 +17,22 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    // publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      title: 'Hot Module Replacement'
     }),
+    new Webpack.NamedModulesPlugin(),
     new Webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
 }
