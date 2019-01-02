@@ -1,7 +1,10 @@
 import _ from 'lodash'
 import { cube } from './math'
 
-
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+}
+  
 function component() {
 
   var element = document.createElement('pre')
@@ -16,4 +19,3 @@ function component() {
 
 let element = component()
 document.body.appendChild(element)
-
